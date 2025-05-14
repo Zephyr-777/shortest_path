@@ -144,12 +144,12 @@ def astar(graph, start, end, positions):
 
     # 优先队列
     open_set = [(0, start, [start], 0)]  # (f值, 当前节点, 路径, g值)
-    heapq.heapify(open_set)
+    heapq.heapify(open_set) # 将优先队列转换为堆结构
 
     # 已访问节点集合
     closed_set = set()
-    expanded_nodes = 0
-    animation_frames = []
+    expanded_nodes = 0    # 记录已访问节点的个数
+    animation_frames = [] # 存储动画帧
 
     while open_set:
         f, node, path, g = heapq.heappop(open_set)
@@ -192,7 +192,7 @@ def generate_random_graph(num_nodes, edge_density, fixed_positions=None):
     if fixed_positions is not None:
         positions = fixed_positions
     else:
-        positions = {i: (random.uniform(0, 10), random.uniform(0, 10)) for i in range(num_nodes)}
+        positions = {i: (random.uniform(0, 30), random.uniform(0, 30)) for i in range(num_nodes)}
 
     # 添加边
     for i in range(num_nodes):
